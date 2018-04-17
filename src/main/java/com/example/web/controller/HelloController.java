@@ -2,17 +2,18 @@ package com.example.web.controller;
 
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class HelloController {
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String index() {
         return "Hello World";
     }
 
-    @RequestMapping("/thymeleaf")
+    @RequestMapping(value = "/thymeleaf", method = RequestMethod.GET)
     public ModelAndView index(ModelMap map) {
         // 加入一个属性，用来在模板中读取
         map.addAttribute("host", "localhost");
